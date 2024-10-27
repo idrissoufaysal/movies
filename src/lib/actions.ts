@@ -1,9 +1,10 @@
 import axios from "axios"
 import { apiUrl } from "./constants"
 
-export const getMovies = async () => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const getMovies = async ({year,search,genre,page}:{year:string,search:string,genre?:string,page:number}) => {
     try {
-        const res = await axios.get(`${apiUrl}&s=jet`)
+        const res = await axios.get(`${apiUrl}&s=${search || ''}&y=${year || ''}&p=${page || 1}`)
         console.log(res.data);
         return res.data.Search
     } catch (error) {
