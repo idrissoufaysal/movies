@@ -3,7 +3,7 @@ import { apiUrl } from "./constants"
 
 export const getMovies = async () => {
     try {
-        const res = await axios.get(`${apiUrl}&s=thor`)
+        const res = await axios.get(`${apiUrl}&s=jet`)
         console.log(res.data);
         return res.data.Search
     } catch (error) {

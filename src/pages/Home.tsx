@@ -15,7 +15,7 @@ export default function Home() {
 
     
     if (isPending) {
-        return (<div className="w-full flex justify-center items-center h-full mt-60">
+        return (<div className="w-full flex justify-center items-center h-full mt-60 bg-bg_color">
             <Loading />
         </div>)
     }

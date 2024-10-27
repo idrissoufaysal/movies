@@ -4,7 +4,7 @@ const Loading = () => {
   const dotStyle = {
     width: '13.4px',
     height: '13.4px',
-    background: '#020307',
+    background: '#fff',
     color: '#020307',
     borderRadius: '50%',
     boxShadow: '22.4px 0,-22.4px 0',
