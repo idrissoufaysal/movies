@@ -1,4 +1,5 @@
 import Header from '@/components/shared/Header'
+import { PaginationDemo } from '@/components/shared/Pagination'
 import React from 'react'
 
 const Main = ({ children }: { children: React.ReactNode }) => {
@@ -9,6 +10,7 @@ const Main = ({ children }: { children: React.ReactNode }) => {
                 <div className='flex justify-center items-center min-h-screen'>
                     {children}
                 </div>
+                <PaginationDemo/>
             </div>
         </main>
     )

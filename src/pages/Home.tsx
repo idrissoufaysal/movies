@@ -18,7 +18,7 @@ const {movies,loading}=useMoviesFilters()
     return (
         <Main>
             {
-                loading ? (<div className="w-full flex justify-center items-center h-full mt-40 ">
+                loading ? (<div className="w-full flex justify-center items-center h-full mt-0 ">
                     <Loading />
                 </div>) : (
                     <div className='grid grid-cols-2 lg:grid-cols-4 sm:grid-cols-3 p-10 mt-5 gap-10'>

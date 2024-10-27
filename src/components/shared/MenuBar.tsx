@@ -16,7 +16,7 @@ import {
   
   export function MenubarDemo() {
     return (
-      <Menubar className="bg-primary" color="">
+      <Menubar className="bg-primary">
         <MenubarMenu>
           <MenubarTrigger>File</MenubarTrigger>
           <MenubarContent>
