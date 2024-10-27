@@ -2,6 +2,7 @@ import React from 'react'
 import { Input } from '../ui/input'
 import { MenubarDemo } from './MenuBar'
 import { useMoviesFilters } from '@/context/movieSotore'
+import { YearSelect } from './YearSelect'
 
 export default function Header() {
   const {search, setSearch,totalResults } = useMoviesFilters()
@@ -15,6 +16,7 @@ export default function Header() {
       <h1 className='text-xl'> <span className='text-primary-color'>Mov.</span>time </h1>
       <MenubarDemo />
       <div className="flex items-center">
+        <YearSelect/>
       <div className="relative w-[270px] flex gap-4 items-center">
         <Input
           type="text" // Changez le type en text

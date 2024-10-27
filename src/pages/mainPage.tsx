@@ -11,7 +11,6 @@ const Main = ({ children }: { children: React.ReactNode }) => {
                     {children}
                 </div>
                 <div className='mb-5'>
-
                 <PaginationDemo/>
                 </div>
             </div>
