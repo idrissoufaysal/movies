@@ -19,7 +19,7 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <MovieFilter>
-        <div className="bg-bg_color text-text-color h-full">
+        <div className="bg-bg_color text-text-color h-full dark">
           < RouterProvider router={router} />
         </div>
       </MovieFilter>

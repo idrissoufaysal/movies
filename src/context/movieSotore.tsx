@@ -13,7 +13,8 @@ type MovieContextType = {
     loading:boolean
     movies: Movie[];
     page :number
-    setPage:(page:number)=>void
+    setPage:(page:number)=>void,
+    totalResults:number
 };
 
 const MovieContext = createContext<MovieContextType | undefined>(undefined);
@@ -26,6 +27,8 @@ export const MovieFilter = ({ children }: { children: React.ReactNode }) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [page,setPage]=useState(1)
     const [loading,setLoading]=useState(false)
+    const [totalResults, setTotalResults] = useState(0); // Nouveau état pour le total
+
 
     const { data, isPending } = useQuery({
         queryKey: ['movies', genre, year, search, page],  // Clé unique pour la requête
@@ -33,13 +36,16 @@ export const MovieFilter = ({ children }: { children: React.ReactNode }) => {
     });
 
     useEffect(()=>{
-          setMovies(data)
+        if (data) {
+            setMovies(data.Search || []); // Utilise `Search` pour les films
+            setTotalResults(parseInt(data.totalResults) || 0); // Stocke `totalResults` pour la pagination
+          }
           setLoading(isPending)
           console.log(data);
     },[data, genre, isPending, page, search, year])
 
     return (
-        <MovieContext.Provider value={{ search, setSearch, genre, setGenre, year, setYear, movies,page,setPage,loading }}>
+        <MovieContext.Provider value={{ search, setSearch, genre, setGenre, year, setYear, movies,page,setPage,loading,totalResults }}>
             {children}
         </MovieContext.Provider>
     );

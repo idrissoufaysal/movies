@@ -3,6 +3,7 @@ import MovieCard from '@/components/shared/movieCard';
 import { Movie } from '@/lib/types';
 import Main from './mainPage';
 import { useMoviesFilters } from '@/context/movieSotore';
+import { useEffect } from 'react';
 
 export default function Home() {
     //const [movies, setMovies] = useState<Movie[]>([])
@@ -14,14 +15,18 @@ export default function Home() {
   // })
 
 const {movies,loading}=useMoviesFilters()
+useEffect(()=>{
+console.log(movies.length);
+
+},[])
 
     return (
         <Main>
             {
-                loading ? (<div className="w-full flex justify-center items-center h-full mt-0 ">
+                loading ? (<div className="w-full flex justify-center items-center h-full mt-40 ">
                     <Loading />
                 </div>) : (
-                    <div className='grid grid-cols-2 lg:grid-cols-4 sm:grid-cols-3 p-10 mt-5 gap-10'>
+                    <div className='grid grid-cols-2 lg:grid-cols-4 sm:grid-cols-3 p-10 mt-20 gap-10'>
                         {movies && movies.map((v: Movie) => (
                             <MovieCard props={v} key={v.imdbID} />
                         ))}

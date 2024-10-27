@@ -10,7 +10,10 @@ const Main = ({ children }: { children: React.ReactNode }) => {
                 <div className='flex justify-center items-center min-h-screen'>
                     {children}
                 </div>
+                <div className='mb-5'>
+
                 <PaginationDemo/>
+                </div>
             </div>
         </main>
     )
