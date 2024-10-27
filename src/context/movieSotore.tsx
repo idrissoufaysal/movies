@@ -23,8 +23,9 @@ export const MovieFilter = ({ children }: { children: React.ReactNode }) => {
     const [search, setSearch] = useState<string>('');
     const [genre, setGenre] = useState<string>('');
     const [year, setYear] = useState<string>('');
-    const [movies, setMovies] = useState<Movie[]>([]);
+
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [movies, setMovies] = useState<Movie[]>([]);
     const [page,setPage]=useState(1)
     const [loading,setLoading]=useState(false)
     const [totalResults, setTotalResults] = useState(0); // Nouveau état pour le total
