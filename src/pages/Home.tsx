@@ -26,10 +26,10 @@ console.log(movies.length);
                 loading ? (<div className="w-full flex justify-center items-center h-full mt-40 ">
                     <Loading />
                 </div>) : (
-                    <div className='grid grid-cols-2 lg:grid-cols-4 sm:grid-cols-3 p-10 mt-20 gap-10'>
-                        {movies && movies.map((v: Movie) => (
+                    <div className='grid grid-cols-2 lg:grid-cols-4 sm:grid-cols-3 p-10 mt-20 gap-10 mx-auto'>
+                        {movies.length>0 ? movies.map((v: Movie) => (
                             <MovieCard props={v} key={v.imdbID} />
-                        ))}
+                        )):  <div className='text-2xl ml-[100px]'> no result researh !!!</div> }
                     </div>)
             }
         </Main>
