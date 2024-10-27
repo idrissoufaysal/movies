@@ -29,7 +29,7 @@ export function YearSelect() {
   };
 
   return (
-    <div className="flex gap-2 items-center">
+    <div className=" gap-2 items-center hidden md:flex">
       <Select onValueChange={handleSelectChange}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="Select a year" />

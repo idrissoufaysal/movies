@@ -34,7 +34,11 @@ export const MovieFilter = ({ children }: { children: React.ReactNode }) => {
         queryKey: ['movies', genre, year, search, page],  // Clé unique pour la requête
         queryFn: () => getMovies({search:search,page:page,year:year}),  
     });
-
+    const randomizeArray = (arr: Movie[]) => {
+        return [...arr].sort(() => Math.random() - 0.5);
+      };
+      const randomizedMovies = data ? randomizeArray(data.Search) : [];
+      
     useEffect(()=>{
         if (data) {
             setMovies(data.Search || []); // Utilise `Search` pour les films
@@ -45,7 +49,7 @@ export const MovieFilter = ({ children }: { children: React.ReactNode }) => {
     },[data, genre, isPending, page, search, year])
 
     return (
-        <MovieContext.Provider value={{ search, setSearch, genre, setGenre, year, setYear, movies,page,setPage,loading,totalResults }}>
+        <MovieContext.Provider value={{ search, setSearch, genre, setGenre, year, setYear, movies:randomizedMovies,page,setPage,loading,totalResults }}>
             {children}
         </MovieContext.Provider>
     );
