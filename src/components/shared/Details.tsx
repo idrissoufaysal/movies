@@ -1,5 +1,8 @@
 import { Movie } from '@/lib/types';
+import { clearSelectedMovie } from '@/store/moviesSlice';
+import { RootState } from '@/store/store';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Details({
     close,
@@ -9,14 +12,13 @@ export default function Details({
     dataItem: Movie;
 }) {
 
-    const handleOutsideClick = (e: React.MouseEvent) => {
-        if (e.target === e.currentTarget) {
-            close();
-        }
-    };
+    const dispatch = useDispatch();
+  const selectedMovie = useSelector((state: RootState) => state.movies.selectedMovie);
+
+  if (!selectedMovie) return null;
 
     return (
-        <div className="w-screen h-screen bg-[#08020236] fixed top-0 left-0 flex justify-center items-center z-10" onClick={handleOutsideClick} >
+        <div className="w-screen h-screen bg-[#08020236] fixed top-0 left-0 flex justify-center items-center z-10" >
             <div className="bg-bg_light2 w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 flex flex-col md:flex-row relative rounded-lg overflow-hidden max-h-[90vh]">
                 <img src={dataItem.Poster} alt="" className="object-cover w-full md:w-1/2 max-h-[50vh] md:max-h-full" />
                 <div className="w-full md:w-1/2 flex flex-col items-center p-5">
@@ -27,6 +29,7 @@ export default function Details({
                         <span> Title: <span className="font-normal">{dataItem.Title}</span> </span>
                         <span> Year: <span className="font-normal">{dataItem.Year}</span> </span>
                         <span> Movie Type: <span className="font-normal">{dataItem.Type}</span> </span>
+
                     </div>
 
                     <img
