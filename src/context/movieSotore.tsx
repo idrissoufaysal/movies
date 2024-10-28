@@ -24,7 +24,6 @@ export const MovieFilter = ({ children }: { children: React.ReactNode }) => {
     const [genre, setGenre] = useState<string>('');
     const [year, setYear] = useState<string>('');
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [movies, setMovies] = useState<Movie[]>([]);
     const [page,setPage]=useState(1)
     const [loading,setLoading]=useState(false)
@@ -35,10 +34,6 @@ export const MovieFilter = ({ children }: { children: React.ReactNode }) => {
         queryKey: ['movies', genre, year, search, page],  // Clé unique pour la requête
         queryFn: () => getMovies({search:search,page:page,year:year}),  
     });
-    const randomizeArray = (arr: Movie[]) => {
-        return [...arr].sort(() => Math.random() - 0.5);
-      };
-      const randomizedMovies = data ? randomizeArray(data.Search) : [];
       
     useEffect(()=>{
         if (data) {
@@ -50,7 +45,7 @@ export const MovieFilter = ({ children }: { children: React.ReactNode }) => {
     },[data, genre, isPending, page, search, year])
 
     return (
-        <MovieContext.Provider value={{ search, setSearch, genre, setGenre, year, setYear, movies:randomizedMovies,page,setPage,loading,totalResults }}>
+        <MovieContext.Provider value={{ search, setSearch, genre, setGenre, year, setYear, movies,page,setPage,loading,totalResults }}>
             {children}
         </MovieContext.Provider>
     );
