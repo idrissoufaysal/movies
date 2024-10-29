@@ -9,7 +9,6 @@ export default function MovieCard({ props }: { props: Movie }) {
   const handleClose = () => {
     setIsOpen(false)
     console.log(isOpen);
-    
   }
 
   // Ferme le modal en appuyant sur la touche Échap
@@ -36,7 +35,6 @@ export default function MovieCard({ props }: { props: Movie }) {
       isOpen &&
         <Details
           close={handleClose}
-          dataItem={props}
         />
         }
     </div>

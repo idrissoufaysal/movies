@@ -31,7 +31,7 @@ export default function Details({
                         src="/close.svg"
                         alt="close"
                         onClick={close}
-                        className="absolute top-2 right-2 cursor-pointer w-8 h-8"
+                        className="absolute top-2 right-2 cursor-pointer w-8 h-8 hidden"
                     />
                     <span className='font-mono text-lg text-primary-color mt-10'>cliquer sur echap pour fermer</span>
                 </div>
